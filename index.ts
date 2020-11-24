@@ -2,8 +2,8 @@ import { Coor, Snake, State, Direction } from './types';
 import { pointEqual, popTail, rand, snakeIncludes } from './util';
 
 // Initial state
-let initialFood: Coor = { x: 1, y: 1 };
-let initialSnake: Snake = [{ x: 2, y: 2 }];
+const initialFood: Coor = { x: 1, y: 1 };
+const initialSnake: Snake = [{ x: 2, y: 2 }];
 const initialHead = {
   x: 1,
   y: 2,

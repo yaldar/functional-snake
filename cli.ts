@@ -34,7 +34,6 @@ process.stdin.on('keypress', (_, key) => {
     process.exit();
   }
   if (okMove(key.name, state) && ['up', 'down', 'left', 'right'].includes(key.name)) state.direction = key.name;
-  console.log(key.name);
 });
 
 setInterval(() => {
