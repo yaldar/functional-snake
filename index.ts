@@ -21,26 +21,29 @@ const HEIGHT = 20;
 
 // Code
 const okMove = (direction: Direction, state: State) => {
-  if (direction === 'right' && state.direction === 'left') return false;
-  else if (direction === 'up' && state.direction === 'down') return false;
-  else if (direction === 'down' && state.direction === 'up') return false;
-  else if (direction === 'left' && state.direction === 'right') return false;
+  if (
+    (direction === 'right' && state.direction === 'left') ||
+    (direction === 'up' && state.direction === 'down') ||
+    (direction === 'down' && state.direction === 'up') ||
+    (direction === 'left' && state.direction === 'right')
+  )
+    return false;
   else return true;
 };
 
-const willEat = (state): boolean => pointEqual(state.food, nextHead(state));
+const willEat = (state: State): boolean => pointEqual(state.food, nextHead(state));
 const willClash = (state: State): boolean => {
   return state.snake.some((el) => pointEqual(el, nextHead(state)));
 };
 
 const nextFood = (state: State): Coor => {
-  const f = {
+  const randFood = {
     x: rand(0, WIDTH - 1),
     y: rand(0, HEIGHT - 1),
   };
 
-  if (snakeIncludes(state, f)) nextFood(state);
-  else return f;
+  if (snakeIncludes(state, randFood)) nextFood(state);
+  else return randFood;
 };
 
 const eat = (state: State): State => ({
@@ -83,6 +86,5 @@ const nextHead = (state: State): Coor => {
   }
   return newHead;
 };
-
 
 export { nextState, initialState, WIDTH, HEIGHT, okMove };
