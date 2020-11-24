@@ -1,6 +1,6 @@
 import { initialState, nextState, WIDTH, HEIGHT, okMove } from './index';
-const readline = require('readline');
-import { Snake, State } from './types';
+import readline from 'readline';
+import { State } from './types';
 import { pointEqual, snakeIncludes } from './util';
 
 const print = (str: string): void => {

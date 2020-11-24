@@ -4,7 +4,7 @@
   "description": "Snake game written in functional programming style in Typescript.",
   "main": "index.js",
   "scripts": {
-    "start": "tsc *.ts && node cli.js",
+    "start": "tsc *.ts --esModuleInterop && node cli.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

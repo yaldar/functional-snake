@@ -1,7 +1,10 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 exports.__esModule = true;
 var index_1 = require("./index");
-var readline = require('readline');
+var readline_1 = __importDefault(require("readline"));
 var util_1 = require("./util");
 var print = function (str) {
     process.stdout.write(str);
@@ -29,7 +32,7 @@ var render = function (state) {
     printDashed(index_1.WIDTH, '-');
 };
 var state = index_1.nextState('left', index_1.initialState);
-readline.emitKeypressEvents(process.stdin);
+readline_1["default"].emitKeypressEvents(process.stdin);
 process.stdin.setRawMode(true);
 process.stdin.on('keypress', function (_, key) {
     if (key.ctrl && key.name === 'c') {
@@ -37,7 +40,6 @@ process.stdin.on('keypress', function (_, key) {
     }
     if (index_1.okMove(key.name, state) && ['up', 'down', 'left', 'right'].includes(key.name))
         state.direction = key.name;
-    console.log(key.name);
 });
 setInterval(function () {
     console.clear();

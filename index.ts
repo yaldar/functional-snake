@@ -43,7 +43,7 @@ const nextFood = (state: State): Coor => {
   };
 
   if (snakeIncludes(state, randFood)) nextFood(state);
-  else return randFood;
+  return randFood;
 };
 
 const eat = (state: State): State => ({
@@ -63,7 +63,6 @@ const regularMove = (direction: Direction, state: State) => ({
 const nextState = (direction: Direction, state: State): State => {
   if (willEat(state)) return eat(state);
   if (willClash(state)) return initialState;
-  //to update this one
   else return regularMove(direction, state);
 };
 
@@ -82,6 +81,7 @@ const nextHead = (state: State): Coor => {
     const newY = y === 0 ? HEIGHT - 1 : y - 1;
     return { x, y: newY };
   }
+  return state.head;
 };
 
 export { nextState, initialState, WIDTH, HEIGHT, okMove };
