@@ -1,4 +1,4 @@
-import { initialState, nextState, WIDTH, HEIGHT } from './index';
+import { initialState, nextState, WIDTH, HEIGHT, okMove } from './index';
 const readline = require('readline');
 import { Snake, State } from './types';
 import { pointEqual, snakeIncludes } from './util';
@@ -33,7 +33,8 @@ process.stdin.on('keypress', (_, key) => {
   if (key.ctrl && key.name === 'c') {
     process.exit();
   }
-  if (['up', 'down', 'left', 'right'].includes(key.name)) state.direction = key.name;
+  if (okMove(key.name, state) && ['up', 'down', 'left', 'right'].includes(key.name)) state.direction = key.name;
+  console.log(key.name);
 });
 
 setInterval(() => {
