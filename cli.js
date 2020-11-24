@@ -6,6 +6,7 @@ exports.__esModule = true;
 var index_1 = require("./index");
 var readline_1 = __importDefault(require("readline"));
 var util_1 = require("./util");
+var DELAY = 200;
 var print = function (str) {
     process.stdout.write(str);
 };
@@ -45,4 +46,4 @@ setInterval(function () {
     console.clear();
     render(state);
     state = index_1.nextState(state.direction, state);
-}, 800);
+}, DELAY);

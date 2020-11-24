@@ -3,6 +3,7 @@ import readline from 'readline';
 import { State } from './types';
 import { pointEqual, snakeIncludes } from './util';
 
+const DELAY = 200;
 const print = (str: string): void => {
   process.stdout.write(str);
 };
@@ -40,4 +41,4 @@ setInterval(() => {
   console.clear();
   render(state);
   state = nextState(state.direction, state);
-}, 800);
+}, DELAY);
