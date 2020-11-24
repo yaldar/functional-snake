@@ -68,7 +68,6 @@ const nextHead = (state: State): Coor => {
   const { head } = state;
   const { x, y } = head;
   let newHead: Coor;
-  // if(!okMove())
   if (state.direction === 'left') {
     const newX = x === 0 ? WIDTH - 1 : x - 1;
     newHead = { x: newX, y };
@@ -82,7 +81,6 @@ const nextHead = (state: State): Coor => {
     const newY = y === 0 ? HEIGHT - 1 : y - 1;
     newHead = { x, y: newY };
   }
-  // console.log(newHead);
   return newHead;
 };
 
