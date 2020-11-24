@@ -68,23 +68,20 @@ const nextState = (direction: Direction, state: State): State => {
 };
 
 const nextHead = (state: State): Coor => {
-  const { head } = state;
-  const { x, y } = head;
-  let newHead: Coor;
+  const { x, y } = state.head;
   if (state.direction === 'left') {
     const newX = x === 0 ? WIDTH - 1 : x - 1;
-    newHead = { x: newX, y };
+    return { x: newX, y };
   } else if (state.direction === 'right') {
     const newX = x === WIDTH - 1 ? 0 : x + 1;
-    newHead = { x: newX, y };
+    return { x: newX, y };
   } else if (state.direction === 'up') {
     const newY = y === HEIGHT - 1 ? 0 : y + 1;
-    newHead = { x, y: newY };
+    return { x, y: newY };
   } else if (state.direction === 'down') {
     const newY = y === 0 ? HEIGHT - 1 : y - 1;
-    newHead = { x, y: newY };
+    return { x, y: newY };
   }
-  return newHead;
 };
 
 export { nextState, initialState, WIDTH, HEIGHT, okMove };
