@@ -33,8 +33,7 @@ process.stdin.on('keypress', (_, key) => {
   if (key.ctrl && key.name === 'c') {
     process.exit();
   }
-  if (['up', 'down', 'left', 'right'].includes(key.name))
-    state.direction = key.name;
+  if (['up', 'down', 'left', 'right'].includes(key.name)) state.direction = key.name;
 });
 
 setInterval(() => {
